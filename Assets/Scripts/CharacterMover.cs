@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class CharacterMover : MonoBehaviour
 {
@@ -64,6 +65,7 @@ public class CharacterMover : MonoBehaviour
             animator.SetBool("Crouch", false);
         }
     }
+
 
 
     void FixedUpdate()

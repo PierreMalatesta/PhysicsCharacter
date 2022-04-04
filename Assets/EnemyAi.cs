@@ -19,7 +19,6 @@ public class EnemyAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         agent.speed = 10;
         agent.angularSpeed = 240;
         agent.acceleration = 32;
@@ -30,7 +29,6 @@ public class EnemyAi : MonoBehaviour
             agent.SetDestination(player.transform.position);
             agent.isStopped = false;
         }
-
 
         else
             agent.isStopped = true;

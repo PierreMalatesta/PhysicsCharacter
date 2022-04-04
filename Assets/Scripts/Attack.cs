@@ -12,7 +12,8 @@ public class Attack : MonoBehaviour
         ragdoll = GetComponent<Ragdoll>();
     }
 
-    void AttackState()
+    //test 
+    public void AttackState()
     {
         ragdoll.RagdollOn = true;
     }

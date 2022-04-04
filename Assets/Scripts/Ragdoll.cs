@@ -50,4 +50,10 @@ public class Ragdoll : MonoBehaviour
         if (other.tag == "Box")
             RagdollOn = true;
     }
+
+    public void AttackState()
+    {
+        if (tag == "Enemy")
+            RagdollOn = true;
+    }
 }

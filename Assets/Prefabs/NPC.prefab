@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 3700761210399637650}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1226,7 +1226,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000005493348, y: -0.4173, z: -0.0173}
+  m_ConnectedAnchor: {x: 0.00000000547152, y: -0.4173001, z: -0.017300002}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
