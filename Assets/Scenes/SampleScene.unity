@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -242,6 +242,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3700761210399637649, guid: 9ee24b9abe144df4fb7bdb6900e97097, type: 3}
   m_PrefabInstance: {fileID: 3700761210577859043}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &191099251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191099245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339609746145f4244958f7ec016579f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feet:
+  - {fileID: 1495179105}
+  - {fileID: 1870872324}
+  fx: {fileID: 11400000, guid: bd608f97f87df6d438bef7a35f353606, type: 2}
 --- !u!850595691 &193988454
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -2240,6 +2256,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442201557}
   m_CullTransparentMesh: 1
+--- !u!4 &1495179105 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6476284039175041370, guid: 9ee24b9abe144df4fb7bdb6900e97097, type: 3}
+  m_PrefabInstance: {fileID: 3700761210577859043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1508007416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,6 +2604,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735357404}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1870872324 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1823368146276241570, guid: 9ee24b9abe144df4fb7bdb6900e97097, type: 3}
+  m_PrefabInstance: {fileID: 3700761210577859043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1937269198 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3700761210399637646, guid: 9ee24b9abe144df4fb7bdb6900e97097, type: 3}
@@ -2748,7 +2774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3700761210399637649, guid: 9ee24b9abe144df4fb7bdb6900e97097, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3700761210399637649, guid: 9ee24b9abe144df4fb7bdb6900e97097, type: 3}
       propertyPath: m_LocalPosition.y
