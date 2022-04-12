@@ -8,7 +8,6 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     Ragdoll ragdoll;
-
     public float enemyHealth = 100;
 
     // Start is called before the first frame update

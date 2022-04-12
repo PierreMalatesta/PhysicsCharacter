@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86a7ed3ee879ab643998975cc1a538f7, type: 3}
-  m_Name: VisualFXScriptableObject
+  m_Name: SmokeParticle
   m_EditorClassIdentifier: 
   prefab: {fileID: 1876081050882714, guid: e5df5caad603c8349ba3481b8ded0927, type: 3}
-  duration: 10
+  duration: 1
+  detach: 1
+  colors:
+  - {r: 1, g: 1, b: 1, a: 1}
