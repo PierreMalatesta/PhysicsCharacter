@@ -43,8 +43,8 @@ public class VisualFXInstance : MonoBehaviour
     }
     public bool isFinished() { return countdown <= 0; }
 
-            public static ParticleSystem.MinMaxGradient
-TintGradient(ParticleSystem.MinMaxGradient gradient, Color color)
+    public static ParticleSystem.MinMaxGradient
+    TintGradient(ParticleSystem.MinMaxGradient gradient, Color color)
     {
         switch (gradient.mode)
         {

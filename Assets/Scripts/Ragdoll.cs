@@ -9,6 +9,7 @@ public class Ragdoll : MonoBehaviour
     private Animator animator = null;
     public List<Rigidbody> rigidbodies = new List<Rigidbody>();
     CharacterController cc;
+    public GameObject shield;
 
     public bool RagdollOn
     {
@@ -55,5 +56,17 @@ public class Ragdoll : MonoBehaviour
     {
         if (tag == "Enemy")
             RagdollOn = true;
+    }
+
+    public void ShieldStateOn()
+    {
+        animator.SetBool("Shield", true);
+        shield.SetActive(true);
+    }
+
+    public void ShieldStateOff()
+    {
+        animator.SetBool("Shield", false);
+        shield.SetActive(false);
     }
 }

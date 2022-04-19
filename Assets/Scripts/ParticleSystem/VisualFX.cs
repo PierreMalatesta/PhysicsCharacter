@@ -17,7 +17,7 @@ namespace VisualFXSystem
         {
             //instantiating obj which contains dust particle effect
             GameObject obj = Instantiate(prefab, detach ? null : t);
-            Destroy(obj, 2.0f);
+            Destroy(obj, 1.0f);
             if (detach)
                 obj.transform.position = t.position;
             VisualFXInstance instance = obj.GetComponent<VisualFXInstance>();

@@ -1935,10 +1935,24 @@ ModelImporter:
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
+      - time: 0.43872473
+        functionName: Step
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
       - time: 0.9131649
         functionName: Step
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 2
+        messageOptions: 0
+      - time: 0.9131649
+        functionName: Step
+        data: 
+        objectReferenceParameter: {fileID: -927199367670048503, guid: 2dc526a87c49416478b13f971cef333c, type: 3}
         floatParameter: 0
         intParameter: 2
         messageOptions: 0

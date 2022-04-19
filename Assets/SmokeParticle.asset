@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SmokeParticle
   m_EditorClassIdentifier: 
   prefab: {fileID: 1876081050882714, guid: e5df5caad603c8349ba3481b8ded0927, type: 3}
-  duration: 1
+  duration: 10
   detach: 1
   colors:
-  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0.027672768, a: 1}
