@@ -76,7 +76,7 @@ public class TargetController : MonoBehaviour
             gameObject.transform.position = cam.WorldToScreenPoint(target.transform.position);
 
             //rotate crosshair
-            gameObject.transform.Rotate(new Vector3(0, 0, -1));
+            //gameObject.transform.Rotate(new Vector3(0, 0, -1));
         }
 
     }
