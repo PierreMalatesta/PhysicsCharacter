@@ -9,6 +9,8 @@ public class TargetController : MonoBehaviour
     //the current focused enemy
     EnemyInView target;
     Image image;
+    public PlayerStats player;
+
 
     bool lockedOn;
 
@@ -74,6 +76,8 @@ public class TargetController : MonoBehaviour
 
             //Determine Crosshair location depending on target
             gameObject.transform.position = cam.WorldToScreenPoint(target.transform.position);
+
+            player.target = target.GetComponentInParent<PlayerStats>();
 
             //rotate crosshair
             //gameObject.transform.Rotate(new Vector3(0, 0, -1));
