@@ -33,7 +33,8 @@ public class Power : ScriptableObject
         PunchLeft,
         PunchRight,
         KickLeft,
-        KickRight
+        KickRight,
+        ShieldAnimation
     }
 
     // animation played for this power
