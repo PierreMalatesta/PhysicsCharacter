@@ -6,9 +6,8 @@ using System.Xml.Linq;
 public class PlayerStats : MonoBehaviour
 {
     // who we're aiming at
-    // TODO - write a class that can change this by tabbing, clicking etc.
+    // TODO - write a class that can change this by tabbing, clicking etc. (COMPLETED)
     public PlayerStats target;
-    TargetController isTarget;
 
     // hit points and mana
     public float health = 100;
@@ -98,6 +97,8 @@ public class PlayerStats : MonoBehaviour
     // add a status to our list and call its apply function
     public Status ApplyStatus(Status s)
     {
+        if (s == null)
+            return null;
         Status inst = Instantiate(s);
         inst.name = s.name;
         statusEffects.Add(inst);

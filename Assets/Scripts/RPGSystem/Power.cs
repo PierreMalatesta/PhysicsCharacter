@@ -23,6 +23,10 @@ public class Power : ScriptableObject
     // status effects that get put on the caster
     public Status[] selfEffects;
 
+    public Sprite icon;
+    public Color color;
+    public string description;
+
     // animation names
     public enum Anim
     {

@@ -6,8 +6,8 @@ using TMPro;
 
 public class ActionUI : MonoBehaviour
 {
-    public Action action;
-    Player player;
+    public Power power;
+     PlayerStats player;
 
     [Header("Child Components")]
     public Image icon;
@@ -16,53 +16,24 @@ public class ActionUI : MonoBehaviour
 
     //List<ActionUI> uis = new List<ActionUI>();
 
-    private void Start()
+
+
+
+    public void SetAction(Power a)
     {
-        SetAction(action);
-
-    }
-
-    //private void Update()
-    //{
-    //    // step through the dictionary, and remove any uis associated with actions no longer in our list
-    //    for (int i = 0; i < actionList.actions.Length; i++)
-    //    {
-    //        // if we need to add another UI to our list, create it here 
-    //        if (i >= uis.Count)
-    //        {
-    //            // make this a child of ours on creation.  
-    //            // Don't worry about specifying a position as the LayoutGroup handles that
-    //            uis.Add(Instantiate(prefab, transform));
-
-    //            // pass the player ref through and hook up any buttons 
-    //            uis[i].Init(player);
-    //        }
-    //        uis[i].gameObject.SetActive(true);
-    //        uis[i].SetAction(actionList.actions[i]);
-    //        // make sure they all appear in order again 
-    //        uis[i].transform.SetAsLastSibling();
-    //    }
-
-    //    // disable any remaining UIs if the list has shrunk on us 
-    //    for (int i = actionList.actions.Length; i < uis.Count; i++)
-    //        uis[i].gameObject.SetActive(false);
-    //}
-
-    public void SetAction(Action a)
-    {
-        action = a;
+        power = a;
         if (nameTag)
-            nameTag.text = action.actionName;
+            nameTag.text = power.name;
         if (descriptionTag)
-            descriptionTag.text = action.description;
+            descriptionTag.text = power.description;
         if (icon)
         {
-            icon.sprite = action.icon;
-            icon.color = action.color;
+            icon.sprite = power.icon;
+            icon.color = power.color;
         }
     }
 
-    public void Init(Player p)
+    public void Init(PlayerStats p)
     {
         // store the player ref for use in our lambda function below 
         player = p;
@@ -71,6 +42,6 @@ public class ActionUI : MonoBehaviour
                 // and hook it up in the Unity editor 
                 Button button = GetComponentInChildren<Button>(); 
         if (button)
-            button.onClick.AddListener(() => { player.DoAction(action); }); 
+            button.onClick.AddListener(() => { power.Apply(player, player.target); }); 
     } 
 }
