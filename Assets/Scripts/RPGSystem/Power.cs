@@ -27,6 +27,25 @@ public class Power : ScriptableObject
     public Color color;
     public string description;
 
+    // TODO - cooldown?
+    //add a bool that is cooldown
+    public  float cooldown = 0;
+    private float cooldownTimer = 0;
+
+    public float CooldownPercent()
+    {
+        if (cooldown == 0)
+            return 0;
+        return cooldownTimer / cooldown;
+    }
+
+    public void Update()
+    {
+        cooldownTimer -= Time.deltaTime;
+        if (cooldownTimer < 0)
+            cooldownTimer = 0;
+    }
+
     // animation names
     public enum Anim
     {
@@ -34,7 +53,7 @@ public class Power : ScriptableObject
         PunchRight,
         KickLeft,
         KickRight,
-        ShieldAnimation
+        Shield
     }
 
     // animation played for this power
@@ -42,12 +61,20 @@ public class Power : ScriptableObject
 
     public void Apply(PlayerStats caster, PlayerStats target)
     {
+        if (cooldownTimer > 0)
+            return;
+
+        cooldownTimer = cooldown;
+
+        //using enums to choose animation, this is used too select what animation each power does
+        Animator animator = caster.GetComponent<Animator>();
+        animator.SetTrigger(animation.ToString());
+
         // cant use if we dont have the mana
         if (caster.energy < energyCost)
             return;
         caster.energy -= energyCost;
 
-        // TODO - cooldown?
         // TODO - accuracy and dodge check?
         // TODO - check range?
 

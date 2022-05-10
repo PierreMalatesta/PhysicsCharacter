@@ -7,12 +7,15 @@ using TMPro;
 public class ActionUI : MonoBehaviour
 {
     public Power power;
-     PlayerStats player;
+    public Buff buff;
+    PlayerStats player;
 
     [Header("Child Components")]
     public Image icon;
     public TextMeshProUGUI nameTag;
     public TextMeshProUGUI descriptionTag;
+
+    public Image cooldown;
 
     //List<ActionUI> uis = new List<ActionUI>();
 
@@ -42,6 +45,14 @@ public class ActionUI : MonoBehaviour
                 // and hook it up in the Unity editor 
                 Button button = GetComponentInChildren<Button>(); 
         if (button)
-            button.onClick.AddListener(() => { power.Apply(player, player.target); }); 
-    } 
+            button.onClick.AddListener(() => { power.Apply(player, player.target); });
+    }
+
+    private void Update()
+    {
+        if (cooldown != null && power != null)
+        {
+            cooldown.fillAmount = power.CooldownPercent();
+        }
+    }
 }

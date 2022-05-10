@@ -38,12 +38,15 @@ public class PlayerStats : MonoBehaviour
         HealthBarManager.instance.AddHealthBar(this);
     }
 
-    void Update()
+    public void Update()
     {
         UpdateStatus();
 
         // TODO make energy regen a variable? Allow it to be buffed/debuffed?
         energy = Mathf.Clamp(energy + 10 * Time.deltaTime, 0, maxEnergy);
+
+        foreach (Power power in powers)
+            power.Update();
 
         // passive health regen?
     }

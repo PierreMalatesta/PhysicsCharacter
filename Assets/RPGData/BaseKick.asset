@@ -17,6 +17,7 @@ MonoBehaviour:
   effects: []
   selfEffects: []
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  color: {r: 0, g: 0.13010883, b: 1, a: 1}
+  color: {r: 0, g: 0.14819956, b: 1, a: 255}
   description: Left hook
+  cooldown: 3
   animation: 0

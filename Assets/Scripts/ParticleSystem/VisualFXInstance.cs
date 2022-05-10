@@ -41,6 +41,11 @@ public class VisualFXInstance : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void Stop()
+    {
+        Destroy(gameObject);
+    }
+
     public bool isFinished() { return countdown <= 0; }
 
     public static ParticleSystem.MinMaxGradient
