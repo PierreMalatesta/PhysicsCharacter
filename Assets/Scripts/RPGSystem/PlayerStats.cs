@@ -93,8 +93,6 @@ public class PlayerStats : MonoBehaviour
 
         // subtract from health
         health = Mathf.Clamp(health - dam, 0, maxHealth);
-
-        // TODO - death?
     }
 
     // add a status to our list and call its apply function

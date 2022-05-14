@@ -17,7 +17,7 @@ public class HealthBarManager : MonoBehaviour
 
     public void AddHealthBar(PlayerStats ch)
     {
-        // make ahealthbar for the character we've passed in
+        // make a healthbar for the character we've passed in
         GameObject go = Instantiate(prefab);
         go.transform.parent = transform;
         HealthBar hb = go.GetComponent<HealthBar>();

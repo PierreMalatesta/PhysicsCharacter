@@ -11,6 +11,9 @@ public class TargetController : MonoBehaviour
     Image image;
     public PlayerStats player;
 
+    Ragdoll ragdoll;
+    PlayerStats playerStats;
+
 
     bool lockedOn;
 
@@ -68,6 +71,7 @@ public class TargetController : MonoBehaviour
                 lockedEnemy++;
                 target = nearByEnemies[lockedEnemy];
             }
+
         }
 
         if (lockedOn)
@@ -82,6 +86,17 @@ public class TargetController : MonoBehaviour
             //rotate crosshair
             //gameObject.transform.Rotate(new Vector3(0, 0, -1));
         }
-
     }
+
+    public void OnDeath()
+    {
+        // TODO - death?
+        //if health is less than or equal to 0
+        if (playerStats.health <= 0)
+        {
+            //ragdoll is true, making the enemy or character ragdoll
+            ragdoll.RagdollOn = true;
+        }
+    }
+
 }
