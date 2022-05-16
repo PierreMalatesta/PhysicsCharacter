@@ -11,8 +11,6 @@ public class TargetController : MonoBehaviour
     Image image;
     public PlayerStats player;
 
-    Ragdoll ragdoll;
-
     bool lockedOn;
 
     //keeps track of which enemy is the current target
@@ -20,6 +18,14 @@ public class TargetController : MonoBehaviour
 
     //List of nearby enemies
     public static List<EnemyInView> nearByEnemies = new List<EnemyInView>();
+
+    public static TargetController instance;
+
+    private void Awake()
+    {
+        // I am the one and only taregt controller!
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +35,6 @@ public class TargetController : MonoBehaviour
 
         lockedOn = false;
         lockedEnemy = 0;
-
-        ragdoll = GetComponent<Ragdoll>();
     }
 
     // Update is called once per frame
@@ -90,20 +94,17 @@ public class TargetController : MonoBehaviour
     }
 
     //if Ondeath() is true or ragdoll is true then dont lock onto that enemy
-    public void TargetDisable()
+    public void TargetDisable(EnemyInView died)
     {
-        if (ragdoll.RagdollOn == true) 
-        {
-           //disable cursor for that enemy
-           lockedOn = false;
-           image.enabled = false;
+        // take the dead enemy out of our list to cycle through
+        nearByEnemies.Remove(died);
 
-           if (lockedOn == false)
-           {
-                //remove enemy from the list
-                nearByEnemies.Remove(target);
-                lockedEnemy--;
-           }  
+        // if we were targetting them, turn off the crosshairs
+        if (target == died)
+        {
+            lockedEnemy -= 1;
+            image.enabled = false;
         }
+
     }
 }

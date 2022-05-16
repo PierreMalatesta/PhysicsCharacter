@@ -33,15 +33,12 @@ public class PlayerStats : MonoBehaviour
     public Power[] powers;
 
     Ragdoll ragdoll;
-    TargetController targetController;
 
     void Start()
     {
         // add a health bar to each character
         HealthBarManager.instance.AddHealthBar(this);
         ragdoll = GetComponent<Ragdoll>();
-
-        targetController = GetComponent<TargetController>();
 
     }
 
@@ -133,8 +130,8 @@ public class PlayerStats : MonoBehaviour
         {
             //ragdoll is true, making the enemy or character ragdoll
             ragdoll.RagdollOn = true;
+            //disabling the one and only target controller from that enemy
+            TargetController.instance.TargetDisable(GetComponentInChildren<EnemyInView>());
         }
-
-        targetController.TargetDisable();
     }
 }
