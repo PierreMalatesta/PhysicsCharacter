@@ -32,10 +32,17 @@ public class PlayerStats : MonoBehaviour
     // the powers the character can use
     public Power[] powers;
 
+    Ragdoll ragdoll;
+    TargetController targetController;
+
     void Start()
     {
         // add a health bar to each character
         HealthBarManager.instance.AddHealthBar(this);
+        ragdoll = GetComponent<Ragdoll>();
+
+        targetController = GetComponent<TargetController>();
+
     }
 
     public void Update()
@@ -49,6 +56,8 @@ public class PlayerStats : MonoBehaviour
             power.Update();
 
         // passive health regen?
+
+        OnDeath();
     }
 
     void UpdateStatus()
@@ -114,5 +123,18 @@ public class PlayerStats : MonoBehaviour
         //eg 
         // Animator animator = GetComponent<Animator>();
         // animator.Play(anim.name);
+    }
+
+    public void OnDeath()
+    {
+        // TODO - death - COMPLETED
+        //if health is less than or equal to 0
+        if (health <= 0)
+        {
+            //ragdoll is true, making the enemy or character ragdoll
+            ragdoll.RagdollOn = true;
+        }
+
+        targetController.TargetDisable();
     }
 }

@@ -12,8 +12,6 @@ public class TargetController : MonoBehaviour
     public PlayerStats player;
 
     Ragdoll ragdoll;
-    PlayerStats playerStats;
-
 
     bool lockedOn;
 
@@ -31,11 +29,14 @@ public class TargetController : MonoBehaviour
 
         lockedOn = false;
         lockedEnemy = 0;
+
+        ragdoll = GetComponent<Ragdoll>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.F) && !lockedOn)
         {
             if (nearByEnemies.Count >= 1)
@@ -64,6 +65,7 @@ public class TargetController : MonoBehaviour
                 //if end of list has been reached start over
                 lockedEnemy = 0;
                 target = nearByEnemies[lockedEnemy];
+
             }
             else
             {
@@ -71,7 +73,6 @@ public class TargetController : MonoBehaviour
                 lockedEnemy++;
                 target = nearByEnemies[lockedEnemy];
             }
-
         }
 
         if (lockedOn)
@@ -88,15 +89,21 @@ public class TargetController : MonoBehaviour
         }
     }
 
-    public void OnDeath()
+    //if Ondeath() is true or ragdoll is true then dont lock onto that enemy
+    public void TargetDisable()
     {
-        // TODO - death?
-        //if health is less than or equal to 0
-        if (playerStats.health <= 0)
+        if (ragdoll.RagdollOn == true) 
         {
-            //ragdoll is true, making the enemy or character ragdoll
-            ragdoll.RagdollOn = true;
+           //disable cursor for that enemy
+           lockedOn = false;
+           image.enabled = false;
+
+           if (lockedOn == false)
+           {
+                //remove enemy from the list
+                nearByEnemies.Remove(target);
+                lockedEnemy--;
+           }  
         }
     }
-
 }
