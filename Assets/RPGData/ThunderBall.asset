@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a320ddc32ccb70f4bb986f09d5c19771, type: 3}
   m_Name: ThunderBall
   m_EditorClassIdentifier: 
-  energyCost: 10
+  energyCost: 50
   damage: 20
   effects:
   - {fileID: 0}
   selfEffects:
   - {fileID: 11400000, guid: c01218257e167264ea18068d98b5dad1, type: 2}
   icon: {fileID: 21300000, guid: 21df9195ed43b004394e6d7913b03149, type: 3}
-  color: {r: 1, g: 1, b: 1, a: 0}
+  color: {r: 1, g: 1, b: 1, a: 1}
   description: Make an electircity ball that deals damage to enemies
   cooldown: 5
-  animation: 0
+  projectilePrefab: {fileID: 0}
+  animation: 4

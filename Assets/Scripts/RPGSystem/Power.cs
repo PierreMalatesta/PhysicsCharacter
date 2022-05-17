@@ -32,6 +32,9 @@ public class Power : ScriptableObject
     public  float cooldown = 0;
     private float cooldownTimer = 0;
 
+    // if this is not null, the power spawns one of these to cary it to the target
+    public Projectile projectilePrefab;
+
     public float CooldownPercent()
     {
         if (cooldown == 0)
@@ -61,6 +64,7 @@ public class Power : ScriptableObject
 
     public void Apply(PlayerStats caster, PlayerStats target)
     {
+        // STARTING THE POWER OFF
         if (cooldownTimer > 0)
             return;
 
@@ -78,6 +82,33 @@ public class Power : ScriptableObject
         // TODO - accuracy and dodge check?
         // TODO - check range?
 
+        // play the animation for the power
+        caster.PlayAnimation(animation);
+
+
+        // TODO - just play the animation, and have a Hit animation event that triggers the actual damge and so on.
+        // Store a activePower in the character if you do this.
+
+        // TODO - make some visual effects on the caster and target? beams in between maybe?
+
+        if (projectilePrefab == null)
+            ApplyToTarget(caster, target);
+        else
+        {
+            // make a projectile
+            Projectile projectile = Instantiate(projectilePrefab, caster.transform.position + Vector3.up, caster.transform.rotation);
+
+            // point it at the target
+            projectile.transform.forward = target.transform.position - caster.transform.position;
+
+            // tell the projectile who its caster and power are
+            
+        }
+    }
+
+    public void ApplyToTarget(PlayerStats caster, PlayerStats target)
+    { 
+        // APPLYING THE POWER TO THE TARGET
         // multiply damage by any buffs/debuffs we have
         float multiplier = 1.0f + caster.GetAttribute(PlayerStats.Attribute.Damage) * 0.01f;
 
@@ -91,14 +122,6 @@ public class Power : ScriptableObject
         // apply effects to the caster
         foreach (Status s in selfEffects)
             caster.ApplyStatus(s);
-
-        // play the animation for the power
-        caster.PlayAnimation(animation);
-
-        // TODO - just play the animation, and have a Hit animation event that triggers the actual damge and so on.
-        // Store a activePower in the character if you do this.
-
-        // TODO - make some visual effects on the caster and target? beams in between maybe?
 
     }
 }

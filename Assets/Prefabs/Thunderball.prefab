@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4091259076494543566}
   - component: {fileID: 4091259076494543567}
   - component: {fileID: 4091259076494543560}
+  - component: {fileID: 50981552948116026}
   m_Layer: 0
   m_Name: Thunderball
   m_TagString: Untagged
@@ -92,7 +93,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4091259076494543561}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -4869,3 +4870,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &50981552948116026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091259076494543561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c643ae78da067244a9d794bf915b6df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  _power: {fileID: 4091259076494543561}
+  _caster: {fileID: 4082605673838333660, guid: 282750cbfe10805409646f5333b229c8, type: 3}
