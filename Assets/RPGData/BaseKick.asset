@@ -20,4 +20,7 @@ MonoBehaviour:
   color: {r: 1, g: 1, b: 1, a: 255}
   description: Left hook
   cooldown: 3
+  projectilePrefab: {fileID: 0}
+  fireEffect: {fileID: 0}
+  impactEffect: {fileID: 0}
   animation: 0

@@ -4882,6 +4882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c643ae78da067244a9d794bf915b6df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  _power: {fileID: 4091259076494543561}
-  _caster: {fileID: 4082605673838333660, guid: 282750cbfe10805409646f5333b229c8, type: 3}
+  speed: 1
+  g_Power: {fileID: 4091259076494543561}
+  power: {fileID: 0}
+  caster: {fileID: 0}

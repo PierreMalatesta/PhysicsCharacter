@@ -35,6 +35,10 @@ public class Power : ScriptableObject
     // if this is not null, the power spawns one of these to cary it to the target
     public Projectile projectilePrefab;
 
+    public VisualFXSystem.VisualFX fireEffect;
+    public VisualFXSystem.VisualFX impactEffect;
+
+
     public float CooldownPercent()
     {
         if (cooldown == 0)
@@ -89,7 +93,11 @@ public class Power : ScriptableObject
         // TODO - just play the animation, and have a Hit animation event that triggers the actual damge and so on.
         // Store a activePower in the character if you do this.
 
-        // TODO - make some visual effects on the caster and target? beams in between maybe?
+        //make some visual effects on the caster and target? beams in between maybe?
+        if (fireEffect != null)
+        {
+            fireEffect.Begin(caster.transform);
+        }
 
         if (projectilePrefab == null)
             ApplyToTarget(caster, target);
@@ -102,7 +110,10 @@ public class Power : ScriptableObject
             projectile.transform.forward = target.transform.position - caster.transform.position;
 
             // tell the projectile who its caster and power are
-            
+            projectile.power = this;
+            projectile.caster = caster;
+
+            Physics.IgnoreCollision(projectile.GetComponent<Collider>(), caster.GetComponent<CharacterController>());
         }
     }
 
@@ -122,6 +133,13 @@ public class Power : ScriptableObject
         // apply effects to the caster
         foreach (Status s in selfEffects)
             caster.ApplyStatus(s);
+
+
+        if (impactEffect != null)
+        {
+            impactEffect.Begin(target.transform);
+        }
+
 
     }
 }

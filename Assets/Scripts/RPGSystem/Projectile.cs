@@ -7,24 +7,24 @@ public class Projectile : MonoBehaviour
     public float speed = 10;
 
     // fields for the caster and power
-    public GameObject _power;
+    public GameObject g_Power;
     //public GameObject _caster;
 
-    Power power;
-    PlayerStats caster;
+    public Power power;
+    public PlayerStats caster;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         // move forwards along our forward axis
-        _power.transform.position = transform.forward * speed;
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)

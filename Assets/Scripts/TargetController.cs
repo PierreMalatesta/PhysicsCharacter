@@ -105,6 +105,5 @@ public class TargetController : MonoBehaviour
             lockedEnemy -= 1;
             image.enabled = false;
         }
-
     }
 }
