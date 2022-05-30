@@ -12,6 +12,8 @@ public class Power : ScriptableObject
     // how much damage it does
     public float damage;
 
+    public float range = 5f;
+
     // TODO - an enumeration for damage types, eg Crushing, Fire, Cold, Magic...
 
     // TODO - visual FX
