@@ -14,7 +14,7 @@ public class TargetController : MonoBehaviour
     bool lockedOn;
 
     //keeps track of which enemy is the current target
-    int lockedEnemy;
+    public int lockedEnemy;
 
     //List of nearby enemies
     public static List<EnemyInView> nearByEnemies = new List<EnemyInView>();
@@ -104,6 +104,10 @@ public class TargetController : MonoBehaviour
         {
             lockedEnemy -= 1;
             image.enabled = false;
+
+            //this is so it dosent throw a range exception error, if the list goes too negative
+            if (lockedEnemy >= -1)           
+                lockedEnemy = 0;
         }
     }
 }

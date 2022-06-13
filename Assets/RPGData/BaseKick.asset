@@ -24,4 +24,4 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   fireEffect: {fileID: 0}
   impactEffect: {fileID: 0}
-  animation: 0
+  animation: 6

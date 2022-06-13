@@ -36,8 +36,8 @@ public class AIBrain : MonoBehaviour
 
             power = powers[randomPower];
 
-            //if timer is less than or equal to 0 and the agent is not moving
-            if (Vector3.Distance(transform.position, playerStats.target.transform.position) < power.range)//enemyAI.agent.isStopped == true)
+            //if distance between enemy and target is greater than range
+            if (Vector3.Distance(transform.position, playerStats.target.transform.position) < power.range)
             {
                 //call apply
                 power.Apply(playerStats, playerStats.target);

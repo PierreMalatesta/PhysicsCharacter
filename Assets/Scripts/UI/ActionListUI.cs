@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//tells script to play later if we wanted to play it before for example we would put -100
+[DefaultExecutionOrder(100)]
 public class ActionListUI : MonoBehaviour
 {
     public ActionUI prefab;

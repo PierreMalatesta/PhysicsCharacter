@@ -40,7 +40,6 @@ public class Power : ScriptableObject
     public VisualFXSystem.VisualFX fireEffect;
     public VisualFXSystem.VisualFX impactEffect;
 
-
     public float CooldownPercent()
     {
         if (cooldown == 0)
@@ -62,7 +61,9 @@ public class Power : ScriptableObject
         PunchRight,
         KickLeft,
         KickRight,
-        Shield
+        Shield,
+        BasePunch,
+        BaseKick
     }
 
     // animation played for this power
@@ -74,16 +75,16 @@ public class Power : ScriptableObject
         if (cooldownTimer > 0)
             return;
 
+        // cant use if we dont have the mana
+        if (caster.energy < energyCost)
+            return;
+        caster.energy -= energyCost;
+
         cooldownTimer = cooldown;
 
         //using enums to choose animation, this is used too select what animation each power does
         Animator animator = caster.GetComponent<Animator>();
         animator.SetTrigger(animation.ToString());
-
-        // cant use if we dont have the mana
-        if (caster.energy < energyCost)
-            return;
-        caster.energy -= energyCost;
 
         // TODO - accuracy and dodge check?
         // TODO - check range?
@@ -91,10 +92,17 @@ public class Power : ScriptableObject
         // play the animation for the power
         caster.PlayAnimation(animation);
 
+        // if we have no animation, do this straight away
+        //Activate(caster, target);
 
-        // TODO - just play the animation, and have a Hit animation event that triggers the actual damge and so on.
-        // Store a activePower in the character if you do this.
 
+        // otherwise let Activate get triggered by an animation event
+        caster.currentPower = this;
+    }
+
+    //Activating the power, spawning in the visualFx etc
+    public void Activate(PlayerStats caster, PlayerStats target)
+    {
         //make some visual effects on the caster and target? beams in between maybe?
         if (fireEffect != null)
         {

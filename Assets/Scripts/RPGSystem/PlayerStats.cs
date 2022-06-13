@@ -15,6 +15,9 @@ public class PlayerStats : MonoBehaviour
     public float energy = 100;
     public float maxEnergy = 100;
 
+    public float xpAmount = 0.75f;
+    bool dead = false;
+
     // status effects currently affecting the character
     public List<Status> statusEffects;
 
@@ -31,6 +34,7 @@ public class PlayerStats : MonoBehaviour
 
     // the powers the character can use
     public Power[] powers;
+    public Power currentPower;
 
     Ragdoll ragdoll;
 
@@ -40,6 +44,10 @@ public class PlayerStats : MonoBehaviour
         HealthBarManager.instance.AddHealthBar(this);
         ragdoll = GetComponent<Ragdoll>();
 
+        for (int i = 0; i < powers.Length; i++)
+        {
+            powers[i] = Instantiate(powers[i]);
+        }
     }
 
     public void Update()
@@ -121,17 +129,28 @@ public class PlayerStats : MonoBehaviour
         // Animator animator = GetComponent<Animator>();
         // animator.Play(anim.name);
     }
-
     public void OnDeath()
     {
         // TODO - death - COMPLETED
         //if health is less than or equal to 0
-        if (health <= 0)
+        if (health <= 0 && !dead)
         {
+            dead = true;
             //ragdoll is true, making the enemy or character ragdoll
             ragdoll.RagdollOn = true;
             //disabling the one and only target controller from that enemy
             TargetController.instance.TargetDisable(GetComponentInChildren<EnemyInView>());
+            XpBar.instance.IncrementProgress(xpAmount);
+        }
+    }
+
+    // Just play the animation, and have a Hit animation event that triggers the actual damge and so on.
+    // Store a activePower in the character if you do this.
+    public void Power()
+    {
+        if (currentPower != null)
+        {
+            currentPower.Activate(this, target);
         }
     }
 }

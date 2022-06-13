@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ThunderBall
   m_EditorClassIdentifier: 
   energyCost: 50
-  damage: 20
+  damage: 100
+  range: 5
   effects:
   - {fileID: 11400000, guid: 6d3f85373000ad040b18d78101fac4c9, type: 2}
   selfEffects:
