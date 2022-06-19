@@ -1,31 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerXp : MonoBehaviour
 {
     PlayerStats playerStats;
-    XpBar xpBar;
+
+    public static int level;
+    public TextMeshProUGUI levelText;
+
+    public static PlayerXp instance;
 
     //make xp for player
     public float playerXpAmount = 0;
-    private float xpGained = 100;
+    public bool maxFill = false;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
 
     private void Start()
     {
         playerStats = GetComponent<PlayerStats>();
-        xpBar = FindObjectOfType<XpBar>();
+        levelText = FindObjectOfType<TextMeshProUGUI>();
+
+        level = 1;
+    }
+
+    public void AddXp(float xpGained)
+    {
+        //if the enemy dies increase the xp by 100 NOTE this is only works if they are targeted
+      
+            playerXpAmount += xpGained;
+
+        
+
+        if (playerXpAmount >= 1000)
+        {
+            playerXpAmount -= 1000;
+            level++;
+            maxFill = true;
+        }
+
+        
     }
 
     private void Update()
     {
-        //if the enemy dies increase the xp by 100
-        if (playerStats.target.health <= 0)
-        {
-            playerXpAmount = xpGained;
-
-            //make slider call that value
-            xpBar.IncrementProgress(playerXpAmount);
-        }
+        levelText.text = "Level: " + level;
     }
 }

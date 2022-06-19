@@ -7,11 +7,11 @@ public class XpBar : MonoBehaviour
 {
     public static XpBar instance;
 
-    private Slider slider;
+    public Slider slider;
     public float fillSpeed = 0.5f;
 
     //this is too check that the bar is actually moving
-    private float targetProgress = 0;
+    public PlayerXp player;
 
     private ParticleSystem xpEffect;
 
@@ -35,20 +35,29 @@ public class XpBar : MonoBehaviour
     void Update()
     {
         //this makes the slider move in game
-        if (slider.value < targetProgress)
+        if (slider.value < player.playerXpAmount)
         {
             slider.value += fillSpeed * Time.deltaTime;
+
+            if (slider.value > player.playerXpAmount)
+            {
+                slider.value = player.playerXpAmount;
+            }
+
             if (!xpEffect.isPlaying)
                 xpEffect.Play();
         }
 
-        else
-            xpEffect.Stop();
-    }
+        else if (slider.value > player.playerXpAmount)
+        {
+            slider.value += fillSpeed * Time.deltaTime;
 
-    //add progress bar
-    public void IncrementProgress(float newProgress)
-    {   
-        targetProgress = slider.value + newProgress;
+            if (slider.value >= slider.maxValue)
+                slider.value = 0;
+            
+        }
+
+        else 
+            xpEffect.Stop();
     }
 }

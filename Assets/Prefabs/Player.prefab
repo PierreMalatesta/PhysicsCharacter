@@ -902,7 +902,6 @@ MonoBehaviour:
   maxHealth: 100
   energy: 100
   maxEnergy: 100
-  xpAmount: 0
   statusEffects: []
   powers:
   - {fileID: 11400000, guid: 70325701447352440ae30f623b8f4527, type: 2}
@@ -962,7 +961,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f200ccc8fb14f42878b2c0006a9684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelText: {fileID: 0}
   playerXpAmount: 0
+  xpGained: 1000
 --- !u!54 &4082605673638037341
 Rigidbody:
   m_ObjectHideFlags: 0

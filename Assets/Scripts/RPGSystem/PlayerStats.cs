@@ -15,8 +15,10 @@ public class PlayerStats : MonoBehaviour
     public float energy = 100;
     public float maxEnergy = 100;
 
-    public float xpAmount = 0.75f;
+    //public float xpAmount = 0.75f;
     bool dead = false;
+
+    public float xpGain;
 
     // status effects currently affecting the character
     public List<Status> statusEffects;
@@ -140,7 +142,7 @@ public class PlayerStats : MonoBehaviour
             ragdoll.RagdollOn = true;
             //disabling the one and only target controller from that enemy
             TargetController.instance.TargetDisable(GetComponentInChildren<EnemyInView>());
-            XpBar.instance.IncrementProgress(xpAmount);
+            PlayerXp.instance.AddXp(xpGain);
         }
     }
 

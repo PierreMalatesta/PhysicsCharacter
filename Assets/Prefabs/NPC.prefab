@@ -500,7 +500,7 @@ MonoBehaviour:
   maxHealth: 100
   energy: 100
   maxEnergy: 100
-  xpAmount: 100
+  xpGain: 600
   statusEffects: []
   powers: []
   currentPower: {fileID: 0}
