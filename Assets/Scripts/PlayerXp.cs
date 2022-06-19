@@ -21,7 +21,6 @@ public class PlayerXp : MonoBehaviour
         instance = this;
     }
 
-
     private void Start()
     {
         playerStats = GetComponent<PlayerStats>();
@@ -30,13 +29,15 @@ public class PlayerXp : MonoBehaviour
         level = 1;
     }
 
+    private void Update()
+    {
+        levelText.text = "Level: " + level;
+    }
+
     public void AddXp(float xpGained)
     {
         //if the enemy dies increase the xp by 100 NOTE this is only works if they are targeted
-      
-            playerXpAmount += xpGained;
-
-        
+        playerXpAmount += xpGained;
 
         if (playerXpAmount >= 1000)
         {
@@ -44,12 +45,5 @@ public class PlayerXp : MonoBehaviour
             level++;
             maxFill = true;
         }
-
-        
-    }
-
-    private void Update()
-    {
-        levelText.text = "Level: " + level;
     }
 }

@@ -17,7 +17,6 @@ public class XpBar : MonoBehaviour
 
     private void Awake()
     {
-        //fairly certain this goes in awake because we have to call this before we call incrementProgress
         slider = gameObject.GetComponent<Slider>();
         xpEffect = GameObject.Find("Progress Bar Particles").GetComponent<ParticleSystem>();
 
@@ -27,8 +26,7 @@ public class XpBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //IncrementProgress(0.75f);
-        //TODO use a singleton for the xp bar
+
     }
 
     // Update is called once per frame
@@ -40,13 +38,12 @@ public class XpBar : MonoBehaviour
             slider.value += fillSpeed * Time.deltaTime;
 
             if (slider.value > player.playerXpAmount)
-            {
                 slider.value = player.playerXpAmount;
-            }
 
             if (!xpEffect.isPlaying)
                 xpEffect.Play();
         }
+
 
         else if (slider.value > player.playerXpAmount)
         {
