@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VisualFXSystem;
+using RPG;
 
 public class Footsteps : MonoBehaviour
 {

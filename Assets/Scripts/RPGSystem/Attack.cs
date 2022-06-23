@@ -2,23 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+namespace RPG
 {
-    PlayerStats ch;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Attack : MonoBehaviour
     {
-        ch = GetComponent<PlayerStats>();
-    }
+        PlayerStats ch;
 
-    //test 
-    public void PunchState()
-    {
-        for (int i = 0; i < ch.powers.Length; i++)
+        // Start is called before the first frame update
+        void Start()
         {
-            Debug.Log(ch.powers[i].name);
-            ch.powers[i].Apply(ch, ch.target);
-        }      
+            ch = GetComponent<PlayerStats>();
+        }
+
+        //test 
+        public void PunchState()
+        {
+            for (int i = 0; i < ch.powers.Length; i++)
+            {
+                Debug.Log(ch.powers[i].name);
+                ch.powers[i].Apply(ch, ch.target);
+            }
+        }
     }
 }

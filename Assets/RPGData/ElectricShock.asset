@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 3
   timer: 0
-  fx: {fileID: 0}
+  fx: {fileID: 11400000, guid: 82e1237619b61ef489164ccf444195a5, type: 2}
   damagePerTick: 1
   frequency: 0.25
   nextTick: 0
-  fx: {fileID: 11400000, guid: 82e1237619b61ef489164ccf444195a5, type: 2}

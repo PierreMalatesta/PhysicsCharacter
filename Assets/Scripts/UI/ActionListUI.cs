@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using RPG;
 
 //tells script to play later if we wanted to play it before for example we would put -100
 [DefaultExecutionOrder(100)]
