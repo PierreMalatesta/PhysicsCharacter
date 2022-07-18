@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a7ed3ee879ab643998975cc1a538f7, type: 3}
   m_Name: ThunderBallFX
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4091259076494543561, guid: 06e1e84cd4b292f41a081a8bc19e4079, type: 3}
+  prefab: {fileID: 1714681308540598, guid: 5cbc537826220e04592d5a41a0dd985f, type: 3}
   duration: 2
   detach: 0
   colors:

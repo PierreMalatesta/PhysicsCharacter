@@ -25,5 +25,5 @@ MonoBehaviour:
   cooldown: 5
   projectilePrefab: {fileID: 50981552948116026, guid: 06e1e84cd4b292f41a081a8bc19e4079, type: 3}
   fireEffect: {fileID: 11400000, guid: 89004eb9aafd0db40a1d23780163221f, type: 2}
-  impactEffect: {fileID: 0}
+  impactEffect: {fileID: 11400000, guid: b8b27d8e306d2b141b767113d9554212, type: 2}
   animation: 4
